@@ -49,7 +49,8 @@
                 float: right;
             }
             .code .intend { padding-left: 30px; }
-            .code .value { color: #FF73FD; }
+            .code .value,
+            .code .value a { color: #FF73FD; text-decoration: none; }
         </style>
         <title>Josef Doležal</title>
     </head>
@@ -77,8 +78,8 @@
                 &#123;<br>
                 <div class="intend">
                     <span class="value">"name"</span>&#58;&nbsp;<span class="value">"Josef Doležal"</span>,<br>
-                    <span class="value">"e-mail"</span>&#58;&nbsp;<span class="value">"@"</span>,<br>
-                    <span class="value">"web"</span>&#58;&nbsp;<span class="value">"www.josefdolezal.me"</span>,<br>
+                    <span class="value">"e-mail"</span>&#58;&nbsp;<span class="value">"<a href="mailto:@" id="unicorn">@</a>"</span>,<br>
+                    <span class="value">"web"</span>&#58;&nbsp;<span class="value">"<a href="http://josefdolezal.me">www.josefdolezal.me</a>"</span>,<br>
                     <span class="value">"skills"</span>&#58;&nbsp;&#123;<br>
                     <div class="intend">
                         <span class="value">"0"</span>&#58;&nbsp;<span class="value">"php"</span>,<br>
@@ -87,16 +88,18 @@
                         <span class="value">"3"</span>&#58;&nbsp;<span class="value">"mysql"</span><br>
                     </div>
                     &#125;,<br>
-                    <span class="value">"github"</span>&#58;&nbsp;<span class="value">"https://github.com/josefdolezal"</span>,<br>
-                    <span class="value">"twitter"</span>&#58;&nbsp;<span class="value">"@josefdolezal"</span><br>
+                    <span class="value">"github"</span>&#58;&nbsp;<span class="value">"<a href="https://github.com/josefdolezal">https://github.com/josefdolezal</a>"</span>,<br>
+                    <span class="value">"twitter"</span>&#58;&nbsp;<span class="value">"<a href="https://twitter.com/@josefdolezal">@josefdolezal</a>"</span><br>
                 </div>
                 &#125;
             </div>
             <div class="clearfix"></div>
         </div>
         <script>
-            /* retina images */
 
+            var littleUnicorn = [":-)", "pepik.ml", 34, "ail.com", "gm"];
+            var magic = "";
+            var unicorn = document.getElementById('unicorn');
             var code = document.getElementsByClassName('code')[0];
             var lines = document.getElementsByClassName('lines')[0];
             var line = lines.children[0];
@@ -113,9 +116,15 @@
 
             code.addEventListener('mouseleave', function() {
                 line.style.display = "none";
-            })
+            });
 
+            magic = littleUnicorn[1] + String.fromCharCode(littleUnicorn[2]+30) +
+                    littleUnicorn[4] + littleUnicorn[3];
 
+            unicorn.textContent = magic;
+            unicorn.setAttribute('href', 'mailto:'+magic+'?subject=Tell%20me%20about%20your%20magic!');
+
+            /* retina images */
             if(window.devicePixelRatio == 2) {
                 var images = document.getElementsByTagName('img');
                 for(var i = 0; i < images.length; i++) {
