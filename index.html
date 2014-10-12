@@ -2,14 +2,146 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href='http://fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" src="https://normalize-css.googlecode.com/svn/trunk/normalize.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <style>
-            body {font-family: 'Dosis', sans-serif}
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+            }
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background: #EEEEEF;
+            }
+            .margin-top { margin-top: 30px; }
+            .clearfix {
+                 visibility: hidden;
+                 display: block;
+                 font-size: 0;
+                 clear: both;
+                 height: 0;
+             }
+            .wrap {
+                width: 380px;
+                line-height: 21px;
+                margin: 0 auto;
+            }
+            h1 {
+                margin: 0;
+                font-weight: 300;
+                text-align: center;
+                font-size: 60px;
+            }
+            .lines {
+                border-right: 2px solid #C0BEC3;
+                font-family: 'Roboto Slab';
+                text-align: right;
+                float: left;
+                padding: 0 4px;
+                position: relative;
+            }
+            .code {
+                font-family: 'Roboto Slab';
+                padding: 0;
+                float: right;
+            }
+            .code .intend { padding-left: 30px; }
+            .code .value { color: #FF73FD; }
         </style>
-        <title>josef dolezal</title>
+        <title>Josef Doležal</title>
     </head>
     <body>
-        <p>test</p>
-        <p>tělo</p>
+        <h1>josef doležal</h1>
+        <img src="assets/img/me.jpg" alt="me" style="margin: 30px auto; border-radius: 50%; width: 250px; display: block;">
+        <div class="wrap">
+            <div class="lines">
+                <span style="position:absolute;background:#CCCCCC;top:0;left:0;width:100%;z-index:-1;display:none;"></span>
+                1<br>
+                2<br>
+                3<br>
+                4<br>
+                5<br>
+                6<br>
+                7<br>
+                8<br>
+                9<br>
+                10<br>
+                11<br>
+                12<br>
+                13<br>
+            </div>
+            <div class="code">
+                &#123;<br>
+                <div class="intend">
+                    <span class="value">"name"</span>&#58;&nbsp;<span class="value">"Josef Doležal"</span>,<br>
+                    <span class="value">"e-mail"</span>&#58;&nbsp;<span class="value">"@"</span>,<br>
+                    <span class="value">"web"</span>&#58;&nbsp;<span class="value">"www.josefdolezal.me"</span>,<br>
+                    <span class="value">"skills"</span>&#58;&nbsp;&#123;<br>
+                    <div class="intend">
+                        <span class="value">"0"</span>&#58;&nbsp;<span class="value">"php"</span>,<br>
+                        <span class="value">"1"</span>&#58;&nbsp;<span class="value">"python"</span>,<br>
+                        <span class="value">"2"</span>&#58;&nbsp;<span class="value">"html/css/javascript"</span>,<br>
+                        <span class="value">"3"</span>&#58;&nbsp;<span class="value">"mysql"</span><br>
+                    </div>
+                    &#125;,<br>
+                    <span class="value">"github"</span>&#58;&nbsp;<span class="value">"https://github.com/josefdolezal"</span>,<br>
+                    <span class="value">"twitter"</span>&#58;&nbsp;<span class="value">"@josefdolezal"</span><br>
+                </div>
+                &#125;
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <script>
+            /* retina images */
+
+            var code = document.getElementsByClassName('code')[0];
+            var lines = document.getElementsByClassName('lines')[0];
+            var line = lines.children[0];
+            var lineHeight = 0;
+
+            line.style.height = cumputedStyle(lines, 'line-height');
+            lineHeight = parseInt(line.style.height.replace('px', ''));
+
+            /* line highlight */
+            code.addEventListener('mousemove', function(e) {
+                line.style.display = "inline";
+                line.style.top = (Math.floor((e.pageY-this.offsetTop)/lineHeight) * lineHeight) + "px";
+            });
+
+            code.addEventListener('mouseleave', function() {
+                line.style.display = "none";
+            })
+
+
+            if(window.devicePixelRatio == 2) {
+                var images = document.getElementsByTagName('img');
+                for(var i = 0; i < images.length; i++) {
+                    var src = images[i].getAttribute('src');
+                    if(src) {
+                        src = src.split('.');
+                        src[src.length-2] += "@2x";
+                        images[0].setAttribute('src', src.join('.'));
+                    }
+                }
+            }
+
+
+
+
+
+            function cumputedStyle(el, prop) {
+                if(window.getComputedStyle){
+                    return document.defaultView.getComputedStyle(el, null).getPropertyValue(prop);
+                }
+                else if(el.currentStyle){
+                    return el.currentStyle[prop];
+                }
+                return null;
+            }
+
+        </script>
     </body>
 </html>
