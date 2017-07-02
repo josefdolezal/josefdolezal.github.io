@@ -47,10 +47,16 @@
                 font-family: 'Roboto Slab';
                 padding: 0;
                 float: right;
+                color: black;
             }
+            .code a { text-decoration: none; }
+            .code a:hover { text-decoration: underline; }
             .code .intend { padding-left: 30px; }
-            .code .value,
-            .code .value a { color: #FF73FD; text-decoration: none; }
+            .code .str *,
+            .code .str { color: #C33E2A; }
+            .code .value { color: #597F96; }
+            .code .token { color: #B93E9E; }
+            .code .std { color: #6944A4; }
         </style>
         <title>Josef Doležal</title>
     </head>
@@ -68,30 +74,20 @@
                 6<br>
                 7<br>
                 8<br>
-                9<br>
-                10<br>
-                11<br>
-                12<br>
-                13<br>
             </div>
             <div class="code">
-                &#123;<br>
                 <div class="intend">
-                    <span class="value">"name"</span>&#58;&nbsp;<span class="value">"Josef Doležal"</span>,<br>
-                    <span class="value">"e-mail"</span>&#58;&nbsp;<span class="value">"<a href="mailto:@" id="unicorn">@</a>"</span>,<br>
-                    <span class="value">"web"</span>&#58;&nbsp;<span class="value">"<a href="http://josefdolezal.xyz">www.josefdolezal.xyz</a>"</span>,<br>
-                    <span class="value">"skills"</span>&#58;&nbsp;&#123;<br>
+                    <span class="token">let </span>&nbsp;name&nbsp;=&nbsp;<span class="str">"Josef Doležal"</span><br>
+                    <span class="token">let </span>&nbsp;skills&nbsp;=&nbsp;[<br>
                     <div class="intend">
-                        <span class="value">"0"</span>&#58;&nbsp;<span class="value">"php"</span>,<br>
-                        <span class="value">"1"</span>&#58;&nbsp;<span class="value">"python"</span>,<br>
-                        <span class="value">"2"</span>&#58;&nbsp;<span class="value">"html/css/javascript"</span>,<br>
-                        <span class="value">"3"</span>&#58;&nbsp;<span class="value">"mysql"</span><br>
+                        <span class="value">.ios</span>,<br>
+                        <span class="value">.swift</span>,<br>
+                        <span class="value">.reactiveProgramming</span>(<span class="token">using</span>: <span class="std">RAC</span>)</span><br>
                     </div>
-                    &#125;,<br>
-                    <span class="value">"github"</span>&#58;&nbsp;<span class="value">"<a href="https://github.com/josefdolezal">https://github.com/josefdolezal</a>"</span>,<br>
-                    <span class="value">"twitter"</span>&#58;&nbsp;<span class="value">"<a href="https://twitter.com/@josefdolezal">@josefdolezal</a>"</span><br>
+                    ]<br>
+                    <span class="token">let </span>&nbsp;github&nbsp;=&nbsp;<span class="str">"<a href="https://github.com/josefdolezal">josefdolezal</a>"</span><br>
+                    <span class="token">let </span>&nbsp;twitter&nbsp;=&nbsp;<span class="str">"<a href="https://twitter.com/@josefdolezal">@josefdolezal</a>"</span><br>
                 </div>
-                &#125;
             </div>
             <div class="clearfix"></div>
         </div>
