@@ -129,20 +129,7 @@
                         src = src.split('.');
                         src[src.length-2] += "@2x";
                         images[0].setAttribute('src', src.join('.'));
-                    }
                 }
-            }
-
-
-
-
-
-            function cumputedStyle(el, prop) {
-                if(window.getComputedStyle){
-                    return document.defaultView.getComputedStyle(el, null).getPropertyValue(prop);
-                }
-                else if(el.currentStyle){
-                    return el.currentStyle[prop];
                 }
                 return null;
             }
