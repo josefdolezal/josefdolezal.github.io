@@ -16,7 +16,6 @@
                 font-family: 'Open Sans', sans-serif;
                 background: #EEEEEF;
             }
-            .margin-top { margin-top: 30px; }
             .clearfix {
                  visibility: hidden;
                  display: block;
@@ -24,31 +23,22 @@
                  clear: both;
                  height: 0;
              }
-            .wrap {
-                width: 380px;
-                line-height: 21px;
-                margin: 0 auto;
-            }
             h1 {
                 margin: 0;
                 font-weight: 300;
                 text-align: center;
                 font-size: 60px;
             }
-            .lines {
-                border-right: 2px solid #C0BEC3;
-                font-family: 'Roboto Slab';
-                text-align: right;
-                float: left;
-                padding: 0 4px;
-                position: relative;
-            }
             .code {
                 font-family: 'Roboto Slab';
                 padding: 0;
-                float: right;
                 color: black;
+                margin: auto;
             }
+            .code td { padding: 0 5px; margin: 0; }
+            .code td:first-child { border-right: 1px solid #D2D2D2; }
+            .code tr:hover { background-color: #e8e8e8; }
+            .code tr { padding: 0; margin: 0;}
             .code a { text-decoration: none; }
             .code a:hover { text-decoration: underline; }
             .code .intend { padding-left: 30px; }
@@ -63,63 +53,42 @@
     <body>
         <h1>josef doležal</h1>
         <img src="assets/img/me.jpg" alt="me" style="margin: 30px auto; border-radius: 50%; width: 250px; display: block;">
-        <div class="wrap">
-            <div class="lines">
-                <span style="position:absolute;background:#CCCCCC;top:0;left:0;width:100%;z-index:-1;display:none;"></span>
-                1<br>
-                2<br>
-                3<br>
-                4<br>
-                5<br>
-                6<br>
-                7<br>
-                8<br>
-            </div>
-            <div class="code">
-                <div class="intend">
-                    <span class="token">let </span>&nbsp;name&nbsp;=&nbsp;<span class="str">"Josef Doležal"</span><br>
-                    <span class="token">let </span>&nbsp;skills&nbsp;=&nbsp;[<br>
-                    <div class="intend">
-                        <span class="value">.ios</span>,<br>
-                        <span class="value">.swift</span>,<br>
-                        <span class="value">.reactiveProgramming</span>(<span class="token">using</span>: <span class="std">RAC</span>)</span><br>
-                    </div>
-                    ]<br>
-                    <span class="token">let </span>&nbsp;github&nbsp;=&nbsp;<span class="str">"<a href="https://github.com/josefdolezal">josefdolezal</a>"</span><br>
-                    <span class="token">let </span>&nbsp;twitter&nbsp;=&nbsp;<span class="str">"<a href="https://twitter.com/@josefdolezal">@josefdolezal</a>"</span><br>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+        <table class="code">
+            <tr>
+                <td>1</td>
+                <td><span class="token">let </span>&nbsp;name&nbsp;=&nbsp;<span class="str">"Josef Doležal"</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><span class="token">let </span>&nbsp;skills&nbsp;=&nbsp;[</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><span class="value">.ios</span>,<br></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><span class="value">.swift</span>,<br></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><span class="value">.reactiveProgramming</span>(<span class="token">using</span>: <span class="std">RAC</span>)</span><br></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>]</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><span class="token">let </span>&nbsp;github&nbsp;=&nbsp;<span class="str">"<a href="https://github.com/josefdolezal">josefdolezal</a>"</span><br></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><span class="token">let </span>&nbsp;twitter&nbsp;=&nbsp;<span class="str">"<a href="https://twitter.com/@josefdolezal">@josefdolezal</a>"</span><br></td>
+            </tr>
+        </table>
+
         <script>
-
-            var littleUnicorn = [":-)", "pepik.ml", 34, "ail.com", "gm"];
-            var magic = "";
-            var unicorn = document.getElementById('unicorn');
-            var code = document.getElementsByClassName('code')[0];
-            var lines = document.getElementsByClassName('lines')[0];
-            var line = lines.children[0];
-            var lineHeight = 0;
-
-            line.style.height = cumputedStyle(lines, 'line-height');
-            lineHeight = parseInt(line.style.height.replace('px', ''));
-
-            /* line highlight */
-            code.addEventListener('mousemove', function(e) {
-                line.style.display = "inline";
-                line.style.top = (Math.floor((e.pageY-this.offsetTop)/lineHeight) * lineHeight) + "px";
-            });
-
-            code.addEventListener('mouseleave', function() {
-                line.style.display = "none";
-            });
-
-            magic = littleUnicorn[1] + String.fromCharCode(littleUnicorn[2]+30) +
-                    littleUnicorn[4] + littleUnicorn[3];
-
-            unicorn.textContent = magic;
-            unicorn.setAttribute('href', 'mailto:'+magic+'?subject=Tell%20me%20about%20your%20magic!');
-
             /* retina images */
             if(window.devicePixelRatio == 2) {
                 var images = document.getElementsByTagName('img');
@@ -129,11 +98,9 @@
                         src = src.split('.');
                         src[src.length-2] += "@2x";
                         images[0].setAttribute('src', src.join('.'));
+                    }
                 }
-                }
-                return null;
             }
-
         </script>
     </body>
 </html>
